@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.7" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ERS.Aprendendo.TestesFuncionais.Core\ERS.Aprendendo.TestesFuncionais.Core.csproj" />
+    <ProjectReference Include="..\ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Command\ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.csproj" />
+    <ProjectReference Include="..\ERS.Aprendendo.TestesFuncionais.Infra.BancoDeDados\ERS.Aprendendo.TestesFuncionais.Infra.BancoDeDados.csproj" />
+    <ProjectReference Include="..\ERS.Aprendendo.TestesFuncionais.Infra.IoC\ERS.Aprendendo.TestesFuncionais.Infra.IoC.csproj" />
+  </ItemGroup>
+
+</Project>

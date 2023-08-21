@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "CM1XM0AzgKhjeFsALyWxLI8SzZDLzVK1A8NUrKHKOF8Q05UV2qY/2mj+h8EGSiUKguYOo1u1tkXqNNtpbmY1zw==",
+  "success": true,
+  "projectFilePath": "E:\\dev\\learn\\dotnet\\ERS.Aprendendo.TestesFuncionais\\ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Command\\ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\elton\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
+    "C:\\Users\\elton\\.nuget\\packages\\mediatr\\12.1.0\\mediatr.12.1.0.nupkg.sha512",
+    "C:\\Users\\elton\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\elton\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

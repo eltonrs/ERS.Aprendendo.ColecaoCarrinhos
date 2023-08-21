@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "5775lWexZCl5UPgMWLBcollmHmYAsppKH4yEgr34d+VM/H99Qmfg2IXhMDRoAkPUTKIlV+6O6kjGkjRrcCAxCA==",
+  "success": true,
+  "projectFilePath": "E:\\dev\\learn\\dotnet\\ERS.Aprendendo.TestesFuncionais\\ERS.Aprendendo.TestesFuncionais.Core.Validador\\ERS.Aprendendo.TestesFuncionais.Core.Validador.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\elton\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
+    "C:\\Users\\elton\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\elton\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
+    "C:\\Users\\elton\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\2.1.0\\microsoft.extensions.dependencyinjection.abstractions.2.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.1.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ERS.Aprendendo.TestesFuncionais.Core.Validador\ERS.Aprendendo.TestesFuncionais.Core.Validador.csproj" />
+    <ProjectReference Include="..\ERS.Aprendendo.TestesFuncionais.Core\ERS.Aprendendo.TestesFuncionais.Core.csproj" />
+    <ProjectReference Include="..\ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Command\ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.csproj" />
+    <ProjectReference Include="..\ERS.Aprendendo.TestesFuncionais.Dominio\ERS.Aprendendo.TestesFuncionais.Dominio.csproj" />
+    <ProjectReference Include="..\ERS.Aprendendo.TestesFuncionais.Infra.BancoDeDados\ERS.Aprendendo.TestesFuncionais.Infra.BancoDeDados.csproj" />
+  </ItemGroup>
+
+</Project>
