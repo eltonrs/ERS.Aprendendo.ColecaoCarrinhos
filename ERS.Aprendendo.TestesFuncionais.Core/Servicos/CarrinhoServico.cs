@@ -10,6 +10,7 @@ namespace ERS.Aprendendo.TestesFuncionais.Core.Servicos
     {
         private readonly ICarrinhoRepositorio _carrinhoRepositorio;
         private readonly IValidator<CarrinhoArmazenarDto> _dtoValidador;
+        //private readonly ILogger<CarrinhoController> _logger;
 
         public CarrinhoServico(
             ICarrinhoRepositorio carrinhoRepositorio,
@@ -20,7 +21,7 @@ namespace ERS.Aprendendo.TestesFuncionais.Core.Servicos
             _dtoValidador = dtoValidador;
         }
 
-        public async Task<Carrinho> ArmazenarAsync(
+        public async Task<Guid?> ArmazenarAsync(
             CarrinhoArmazenarDto armazenarDto, 
             CancellationToken cancellationToken
         )
@@ -29,11 +30,13 @@ namespace ERS.Aprendendo.TestesFuncionais.Core.Servicos
 
             if (!dtoValido.IsValid)
             {
-                throw new Exception(
-                    JuntarMensagensErros(
-                        dtoValido.Errors.Select(e => e.ErrorMessage).ToArray()
-                    )
-                );
+                return null;
+
+                //throw new Exception(
+                //    JuntarMensagensErros(
+                //        dtoValido.Errors.Select(e => e.ErrorMessage).ToArray()
+                //    )
+                //);
             }
 
             var carrinho = new Carrinho(
@@ -44,12 +47,12 @@ namespace ERS.Aprendendo.TestesFuncionais.Core.Servicos
             await _carrinhoRepositorio.AdicionarAsync(carrinho, cancellationToken);
             await _carrinhoRepositorio.SalvarAsync(cancellationToken);
 
-            return carrinho;
+            return carrinho.Id;
         }
 
-        private static string JuntarMensagensErros(string[] mensagensErro)
-        {
-            return string.Join(";", mensagensErro);
-        }
+        //private static string JuntarMensagensErros(string[] mensagensErro)
+        //{
+        //    return string.Join(";", mensagensErro);
+        //}
     }
 }

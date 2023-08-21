@@ -1,4 +1,5 @@
 using ERS.Aprendendo.TestesFuncionais.Core.Dtos;
+using ERS.Aprendendo.TestesFuncionais.Core.Interfaces.Servicos;
 using ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Command.Dtos.Responses;
 using ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Queries;
 using ERS.Aprendendo.TestesFuncionais.Dominio.Entidades;
@@ -12,7 +13,6 @@ namespace ERS.Aprendendo.TestesFuncionais.App.API.Controllers
     [Route("[controller]")]
     public class CarrinhoController : ControllerBase
     {
-        private readonly ILogger<CarrinhoController> _logger;
         private readonly ICarrinhoRepositorio _repositorio;
         private readonly IMediator _mediatr;
 
@@ -44,7 +44,7 @@ namespace ERS.Aprendendo.TestesFuncionais.App.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Carrinho>>> ObterTodosAsync(CancellationToken cancellationToken = default)
+        public async Task<ActionResult<Carrinho[]>> ObterTodosAsync(CancellationToken cancellationToken = default)
         {
             var carrinhos = await _repositorio.ObterTodosAsync(cancellationToken);
 
@@ -53,26 +53,22 @@ namespace ERS.Aprendendo.TestesFuncionais.App.API.Controllers
                 return NotFound();
             }
 
-            return Ok(carrinhos);
+            return Ok(carrinhos.ToArray());
         }
 
         [HttpPost]
-        public async Task<ActionResult<Carrinho>> SalvarAsync(
+        public async Task<ActionResult<Guid>> SalvarAsync(
             CarrinhoArmazenarDto dto,
+            [FromServices] ICarrinhoServico carrinhoServico,
             CancellationToken cancellationToken = default
         )
         {
-            // ToDo : Vai tudo para um serviço
-            
-            var carrinho = new Carrinho(
-                dto.Modelo!,
-                dto.DataLancamento
-            );
+            var carrinhoId = await carrinhoServico.ArmazenarAsync(dto, cancellationToken);
 
-            await _repositorio.AdicionarAsync(carrinho, cancellationToken);
-            await _repositorio.SalvarAsync(cancellationToken); // ToDo : por enqto, sem try catch
+            if (carrinhoId is null)
+                return BadRequest();
 
-            return Ok(carrinho);
+            return Ok(carrinhoId);
         }
 
         // ToDo : implementar um endpoint para testar o cancellationToken
