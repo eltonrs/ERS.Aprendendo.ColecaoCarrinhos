@@ -12,11 +12,13 @@ namespace ERS.Aprendendo.TestesFuncionais.Dominio.Entidades
 
         public Carrinho(
             string modelo,
-            DateTime dataLancamento
+            DateTime dataLancamento,
+            Guid colecaoId
         )
         {
             Modelo = modelo;
             DataLancamento = dataLancamento;
+            ColecaoId = colecaoId;
         }
     }
 }

@@ -17,12 +17,10 @@ namespace ERS.Aprendendo.TestesFuncionais.App.API.Controllers
         private readonly IMediator _mediatr;
 
         public CarrinhoController(
-            ILogger<CarrinhoController> logger,
             ICarrinhoRepositorio repositorio
 ,
             IMediator mediatr)
         {
-            _logger = logger;
             _repositorio = repositorio;
             _mediatr = mediatr;
         }

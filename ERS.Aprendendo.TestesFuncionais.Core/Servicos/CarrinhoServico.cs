@@ -10,7 +10,7 @@ namespace ERS.Aprendendo.TestesFuncionais.Core.Servicos
     {
         private readonly ICarrinhoRepositorio _carrinhoRepositorio;
         private readonly IValidator<CarrinhoArmazenarDto> _dtoValidador;
-        //private readonly ILogger<CarrinhoController> _logger;
+        //private readonly ILogger<CarrinhoController> _logger; // ToDo : a ser implementado
 
         public CarrinhoServico(
             ICarrinhoRepositorio carrinhoRepositorio,
@@ -41,7 +41,8 @@ namespace ERS.Aprendendo.TestesFuncionais.Core.Servicos
 
             var carrinho = new Carrinho(
                 armazenarDto.Modelo!,
-                armazenarDto.DataLancamento
+                armazenarDto.DataLancamento,
+                armazenarDto.ColecaoId
             );
 
             await _carrinhoRepositorio.AdicionarAsync(carrinho, cancellationToken);
