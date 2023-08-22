@@ -7,8 +7,12 @@ namespace ERS.Aprendendo.TestesFuncionais.Dominio.Entidades
         public string? Descricao { get; set; }
         public ICollection<Carrinho>? Carrinhos { get; set; }
 
-        public Colecao(string descricao)
+        public Colecao(
+            Guid id,
+            string descricao
+        )
         {
+            Id = id;
             Descricao = descricao;
         }
     }

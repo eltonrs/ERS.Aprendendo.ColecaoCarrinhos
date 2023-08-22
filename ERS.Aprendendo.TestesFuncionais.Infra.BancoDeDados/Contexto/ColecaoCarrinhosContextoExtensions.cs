@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using ERS.Aprendendo.TestesFuncionais.Dominio.Entidades;
+using ERS.Aprendendo.TestesFuncionais.Infra.BancoDeDados.Seed;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -19,6 +21,8 @@ namespace ERS.Aprendendo.TestesFuncionais.Infra.BancoDeDados.Contexto
             {
                 builder.UseInMemoryDatabase(nomeBancoEmMemoria ?? ColecaoCarrinhosContextoEmMemoriaPadrao);
             });
+
+            services.AddTransient<DataSeeder>();
         }
     }
 }

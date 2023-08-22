@@ -1,5 +1,7 @@
 using ERS.Aprendendo.TestesFuncionais.Infra.BancoDeDados.Contexto;
+using ERS.Aprendendo.TestesFuncionais.Infra.BancoDeDados.Seed;
 using ERS.Aprendendo.TestesFuncionais.Infra.IoC;
+using Microsoft.AspNetCore.Authentication.Certificate;
 
 namespace ERS.Aprendendo.TestesFuncionais.App.API
 {
@@ -30,6 +32,7 @@ namespace ERS.Aprendendo.TestesFuncionais.App.API
         {
             // Adiciona os serviços necessários no container (host) da aplicação
 
+            servicos.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme).AddCertificate();
             servicos.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             servicos.AddEndpointsApiExplorer();
@@ -37,7 +40,8 @@ namespace ERS.Aprendendo.TestesFuncionais.App.API
             servicos.AddControllers();
 
             servicos.ConfigurarRepositorios();
-            //services.ConfigurarServices(); // ToDo : implementar configurações do IoC para serviços do Core
+            servicos.ConfigurarServicos();
+            servicos.ConfigurarValidadores();
             servicos.AdicionarColecaoCarrinhosContexto(configuracao);
 
             servicos.ConfigurarCqrs();
@@ -53,9 +57,23 @@ namespace ERS.Aprendendo.TestesFuncionais.App.API
                 app.UseSwaggerUI();
             }
 
+            app.UseAuthentication();
+            //app.UseAuthorization();
             app.UseHttpsRedirection();
-            app.UseAuthorization();
             app.MapControllers();
+
+            Seed(app);
+        }
+
+        private static void Seed(WebApplication app)
+        {
+            var scopedFactory = app.Services.GetService<IServiceScopeFactory>();
+
+            using (var scope = scopedFactory.CreateScope())
+            {
+                var service = scope.ServiceProvider.GetService<DataSeeder>();
+                service.Seed();
+            }
         }
     }
 }

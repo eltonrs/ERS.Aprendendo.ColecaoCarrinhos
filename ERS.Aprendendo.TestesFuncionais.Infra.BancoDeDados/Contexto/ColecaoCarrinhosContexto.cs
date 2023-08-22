@@ -1,12 +1,7 @@
 ﻿using ERS.Aprendendo.TestesFuncionais.Dominio.Entidades;
 using ERS.Aprendendo.TestesFuncionais.Infra.BancoDeDados.ConfiguracoesTabelas;
+
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Query.Internal;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ERS.Aprendendo.TestesFuncionais.Infra.BancoDeDados.Contexto
 {
@@ -15,7 +10,7 @@ namespace ERS.Aprendendo.TestesFuncionais.Infra.BancoDeDados.Contexto
         public ColecaoCarrinhosContexto(DbContextOptions<ColecaoCarrinhosContexto> dbContextOptions)
             : base(dbContextOptions)
         {
-            
+
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
