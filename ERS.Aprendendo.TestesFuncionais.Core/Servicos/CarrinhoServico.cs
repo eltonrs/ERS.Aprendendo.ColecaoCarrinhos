@@ -51,6 +51,28 @@ namespace ERS.Aprendendo.TestesFuncionais.Core.Servicos
             return carrinho.Id;
         }
 
+        public async Task<CarrinhoListagemDto[]> ObterTodosAsync(CancellationToken cancellationToken)
+        {
+            var carrinhos = await _carrinhoRepositorio.ObterTodosAsync(cancellationToken);
+
+            if (carrinhos is null || !carrinhos.Any())
+            {
+                return Array.Empty<CarrinhoListagemDto>();
+            }
+
+            var carrinhosListagem = carrinhos.Select(c =>
+                new CarrinhoListagemDto
+                {
+                    Id = c.Id,
+                    Modelo = c.Modelo,
+                    DataLancamento = c.DataLancamento,
+                    ColecaoDescricao = c.Colecao?.Descricao ?? string.Empty
+                }
+            ).ToArray();
+
+            return carrinhosListagem;
+        }
+
         //private static string JuntarMensagensErros(string[] mensagensErro)
         //{
         //    return string.Join(";", mensagensErro);

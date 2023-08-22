@@ -5,5 +5,6 @@ namespace ERS.Aprendendo.TestesFuncionais.Core.Interfaces.Servicos
     public interface ICarrinhoServico
     {
         Task<Guid?> ArmazenarAsync(CarrinhoArmazenarDto armazenarDto, CancellationToken cancellationToken);
+        Task<CarrinhoListagemDto[]> ObterTodosAsync(CancellationToken cancellationToken);
     }
 }

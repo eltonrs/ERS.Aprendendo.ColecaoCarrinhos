@@ -2,7 +2,6 @@ using ERS.Aprendendo.TestesFuncionais.Core.Dtos;
 using ERS.Aprendendo.TestesFuncionais.Core.Interfaces.Servicos;
 using ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Command.Dtos.Responses;
 using ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Queries;
-using ERS.Aprendendo.TestesFuncionais.Dominio.Entidades;
 using ERS.Aprendendo.TestesFuncionais.Dominio.Interfaces.Repositorios;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -42,16 +41,19 @@ namespace ERS.Aprendendo.TestesFuncionais.App.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<Carrinho[]>> ObterTodosAsync(CancellationToken cancellationToken = default)
+        public async Task<ActionResult<CarrinhoListagemDto[]>> ObterTodosAsync(
+            [FromServices] ICarrinhoServico carrinhoServico,
+            CancellationToken cancellationToken = default
+        )
         {
-            var carrinhos = await _repositorio.ObterTodosAsync(cancellationToken);
+            var carrinhos = await carrinhoServico.ObterTodosAsync(cancellationToken);
 
             if (carrinhos is null || !carrinhos.Any())
             {
                 return NotFound();
             }
 
-            return Ok(carrinhos.ToArray());
+            return Ok(carrinhos);
         }
 
         [HttpPost]
