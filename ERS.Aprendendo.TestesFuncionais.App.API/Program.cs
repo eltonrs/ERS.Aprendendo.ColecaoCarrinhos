@@ -40,7 +40,6 @@ namespace ERS.Aprendendo.TestesFuncionais.App.API
             servicos.AddControllers();
 
             servicos.ConfigurarRepositorios();
-            servicos.ConfigurarServicos();
             servicos.ConfigurarValidadores();
             servicos.AdicionarColecaoCarrinhosContexto(configuracao);
 

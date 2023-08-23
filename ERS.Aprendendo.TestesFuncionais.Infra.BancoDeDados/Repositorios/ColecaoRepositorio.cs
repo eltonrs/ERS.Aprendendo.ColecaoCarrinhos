@@ -17,10 +17,19 @@ namespace ERS.Aprendendo.TestesFuncionais.Infra.BancoDeDados.Repositorios
             var carrinhos = _contexto.Colecoes
                 .Include(colecao => colecao.Carrinhos)
                 .Where(colecao => colecao.Id == colecaoId)
-                .SelectMany(colecao => colecao.Carrinhos) // ToDo : Testar esse comportamento
-                .ToList();
+                .SelectMany(colecao => colecao.Carrinhos?? Enumerable.Empty<Carrinho>()); // ToDo : Testar esse comportamento
 
             return carrinhos;
+        }
+
+        public async Task<Colecao?> ObterPorDescricaoAsync(
+            string descricao,
+            CancellationToken cancellationToken
+        )
+        {
+            return await _contexto.Colecoes
+                .Where(c => c.Descricao == descricao)
+                .SingleOrDefaultAsync(cancellationToken);
         }
     }
 }

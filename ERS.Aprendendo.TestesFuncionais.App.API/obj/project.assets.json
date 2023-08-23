@@ -474,6 +474,7 @@
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "ERS.Aprendendo.TestesFuncionais.Core": "1.0.0",
+          "ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs": "1.0.0",
           "FluentValidation.AspNetCore": "11.3.0"
         },
         "compile": {

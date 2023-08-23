@@ -11,11 +11,13 @@ namespace ERS.Aprendendo.TestesFuncionais.Dominio.Entidades
         public virtual Colecao? Colecao { get; set; }
 
         public Carrinho(
+            Guid id,
             string modelo,
             DateTime dataLancamento,
             Guid colecaoId
         )
         {
+            Id = id;
             Modelo = modelo;
             DataLancamento = dataLancamento;
             ColecaoId = colecaoId;

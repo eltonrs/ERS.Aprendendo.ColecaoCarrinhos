@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "U1fLcJXz6IkLRFXAcGpCXrzvFvAGoHxrvAPDdAyK+JXqhi+CcAvIIPMOJen+9eXTB2W++E/wXaJqtnzc54+PqQ==",
+  "dgSpecHash": "xmOdoj0MrKrXhGLwL7oHqbaSAMK9NjhALm79cIVtjCaTeXV1Lm8DtcGRwfuqQ0TbSs4NjFGWlsQQKEQrzPSsKw==",
   "success": true,
   "projectFilePath": "E:\\dev\\learn\\dotnet\\ERS.Aprendendo.TestesFuncionais\\ERS.Aprendendo.TestesFuncionais.Infra.IoC\\ERS.Aprendendo.TestesFuncionais.Infra.IoC.csproj",
   "expectedPackageFiles": [

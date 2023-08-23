@@ -14,4 +14,9 @@
     <ProjectReference Include="..\ERS.Aprendendo.TestesFuncionais.Dominio\ERS.Aprendendo.TestesFuncionais.Dominio.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Dtos\Cqrs\Command\" />
+    <Folder Include="Validadores\Dtos\Cqrs\Command\" />
+  </ItemGroup>
+
 </Project>
