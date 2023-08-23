@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ERS.Aprendendo.TestesFuncionais.Core\ERS.Aprendendo.TestesFuncionais.Core.csproj" />
-    <ProjectReference Include="..\ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Command\ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.csproj" />
+    <ProjectReference Include="..\ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Command\ERS.Aprendendo.TestesFuncionais.Core.Cqrs.csproj" />
   </ItemGroup>
 
   <ItemGroup>

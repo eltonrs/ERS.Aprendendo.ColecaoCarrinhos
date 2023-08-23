@@ -189,9 +189,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\dev\\learn\\dotnet\\ERS.Aprendendo.TestesFuncionais\\ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Command\\ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.csproj",
-      "projectName": "ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs",
-      "projectPath": "E:\\dev\\learn\\dotnet\\ERS.Aprendendo.TestesFuncionais\\ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Command\\ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.csproj",
+      "projectUniqueName": "E:\\dev\\learn\\dotnet\\ERS.Aprendendo.TestesFuncionais\\ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Command\\ERS.Aprendendo.TestesFuncionais.Core.Cqrs.csproj",
+      "projectName": "ERS.Aprendendo.TestesFuncionais.Core.Cqrs",
+      "projectPath": "E:\\dev\\learn\\dotnet\\ERS.Aprendendo.TestesFuncionais\\ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Command\\ERS.Aprendendo.TestesFuncionais.Core.Cqrs.csproj",
       "packagesPath": "C:\\Users\\elton\\.nuget\\packages\\",
       "outputPath": "E:\\dev\\learn\\dotnet\\ERS.Aprendendo.TestesFuncionais\\ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Command\\obj\\",
       "projectStyle": "PackageReference",

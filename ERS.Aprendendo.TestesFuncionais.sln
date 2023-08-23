@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERS.Aprendendo.TestesFuncio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Dominio", "2 - Dominio", "{557008D6-8EBE-4A3B-925B-2B8CA16FF550}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs", "ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Command\ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.csproj", "{7FA7EAD7-838D-4D81-B243-757CEB7F1752}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERS.Aprendendo.TestesFuncionais.Core.Cqrs", "ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Command\ERS.Aprendendo.TestesFuncionais.Core.Cqrs.csproj", "{7FA7EAD7-838D-4D81-B243-757CEB7F1752}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Testes", "5 - Testes", "{FDD3D9CF-2EF1-4A45-82FC-FC35C9DA1BD7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -70,7 +72,7 @@ Global
 		{192031FF-238A-4C3A-864D-8FABEB99AFA5} = {F06FAA4D-E91F-4FF2-8923-24E8A53DC145}
 		{891E879F-C941-4DBC-A23A-9C6736BC93F6} = {07C4D1C9-C6A1-4DFF-8750-1E4E9BAA6EED}
 		{48295108-FDCE-4854-A08E-3014B28DF851} = {1C6D8CD7-03E9-4C78-B4DF-0357D6D82887}
-		{7FA7EAD7-838D-4D81-B243-757CEB7F1752} = {557008D6-8EBE-4A3B-925B-2B8CA16FF550}
+		{7FA7EAD7-838D-4D81-B243-757CEB7F1752} = {1C6D8CD7-03E9-4C78-B4DF-0357D6D82887}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9BA1F0C7-992D-47B6-A2CC-06645A439201}

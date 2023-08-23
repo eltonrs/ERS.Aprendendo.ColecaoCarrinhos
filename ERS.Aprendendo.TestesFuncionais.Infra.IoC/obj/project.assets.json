@@ -344,12 +344,26 @@
           "bin/placeholder/ERS.Aprendendo.TestesFuncionais.Core.dll": {}
         }
       },
+      "ERS.Aprendendo.TestesFuncionais.Core.Cqrs/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "ERS.Aprendendo.TestesFuncionais.Core": "1.0.0",
+          "MediatR": "12.1.0"
+        },
+        "compile": {
+          "bin/placeholder/ERS.Aprendendo.TestesFuncionais.Core.Cqrs.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ERS.Aprendendo.TestesFuncionais.Core.Cqrs.dll": {}
+        }
+      },
       "ERS.Aprendendo.TestesFuncionais.Core.Validador/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "ERS.Aprendendo.TestesFuncionais.Core": "1.0.0",
-          "ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs": "1.0.0",
+          "ERS.Aprendendo.TestesFuncionais.Core.Cqrs": "1.0.0",
           "FluentValidation.AspNetCore": "11.3.0"
         },
         "compile": {
@@ -367,20 +381,6 @@
         },
         "runtime": {
           "bin/placeholder/ERS.Aprendendo.TestesFuncionais.Dominio.dll": {}
-        }
-      },
-      "ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
-        "dependencies": {
-          "ERS.Aprendendo.TestesFuncionais.Core": "1.0.0",
-          "MediatR": "12.1.0"
-        },
-        "compile": {
-          "bin/placeholder/ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.dll": {}
         }
       },
       "ERS.Aprendendo.TestesFuncionais.Infra.BancoDeDados/1.0.0": {
@@ -861,6 +861,11 @@
       "path": "../ERS.Aprendendo.TestesFuncionais.Core/ERS.Aprendendo.TestesFuncionais.Core.csproj",
       "msbuildProject": "../ERS.Aprendendo.TestesFuncionais.Core/ERS.Aprendendo.TestesFuncionais.Core.csproj"
     },
+    "ERS.Aprendendo.TestesFuncionais.Core.Cqrs/1.0.0": {
+      "type": "project",
+      "path": "../ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Command/ERS.Aprendendo.TestesFuncionais.Core.Cqrs.csproj",
+      "msbuildProject": "../ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Command/ERS.Aprendendo.TestesFuncionais.Core.Cqrs.csproj"
+    },
     "ERS.Aprendendo.TestesFuncionais.Core.Validador/1.0.0": {
       "type": "project",
       "path": "../ERS.Aprendendo.TestesFuncionais.Core.Validador/ERS.Aprendendo.TestesFuncionais.Core.Validador.csproj",
@@ -871,11 +876,6 @@
       "path": "../ERS.Aprendendo.TestesFuncionais.Dominio/ERS.Aprendendo.TestesFuncionais.Dominio.csproj",
       "msbuildProject": "../ERS.Aprendendo.TestesFuncionais.Dominio/ERS.Aprendendo.TestesFuncionais.Dominio.csproj"
     },
-    "ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs/1.0.0": {
-      "type": "project",
-      "path": "../ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Command/ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.csproj",
-      "msbuildProject": "../ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Command/ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.csproj"
-    },
     "ERS.Aprendendo.TestesFuncionais.Infra.BancoDeDados/1.0.0": {
       "type": "project",
       "path": "../ERS.Aprendendo.TestesFuncionais.Infra.BancoDeDados/ERS.Aprendendo.TestesFuncionais.Infra.BancoDeDados.csproj",
@@ -885,9 +885,9 @@
   "projectFileDependencyGroups": {
     "net7.0": [
       "ERS.Aprendendo.TestesFuncionais.Core >= 1.0.0",
+      "ERS.Aprendendo.TestesFuncionais.Core.Cqrs >= 1.0.0",
       "ERS.Aprendendo.TestesFuncionais.Core.Validador >= 1.0.0",
       "ERS.Aprendendo.TestesFuncionais.Dominio >= 1.0.0",
-      "ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs >= 1.0.0",
       "ERS.Aprendendo.TestesFuncionais.Infra.BancoDeDados >= 1.0.0",
       "MediatR >= 12.1.0",
       "Microsoft.Extensions.DependencyInjection >= 7.0.0"
@@ -926,8 +926,8 @@
             "E:\\dev\\learn\\dotnet\\ERS.Aprendendo.TestesFuncionais\\ERS.Aprendendo.TestesFuncionais.Core\\ERS.Aprendendo.TestesFuncionais.Core.csproj": {
               "projectPath": "E:\\dev\\learn\\dotnet\\ERS.Aprendendo.TestesFuncionais\\ERS.Aprendendo.TestesFuncionais.Core\\ERS.Aprendendo.TestesFuncionais.Core.csproj"
             },
-            "E:\\dev\\learn\\dotnet\\ERS.Aprendendo.TestesFuncionais\\ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Command\\ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.csproj": {
-              "projectPath": "E:\\dev\\learn\\dotnet\\ERS.Aprendendo.TestesFuncionais\\ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Command\\ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.csproj"
+            "E:\\dev\\learn\\dotnet\\ERS.Aprendendo.TestesFuncionais\\ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Command\\ERS.Aprendendo.TestesFuncionais.Core.Cqrs.csproj": {
+              "projectPath": "E:\\dev\\learn\\dotnet\\ERS.Aprendendo.TestesFuncionais\\ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Command\\ERS.Aprendendo.TestesFuncionais.Core.Cqrs.csproj"
             },
             "E:\\dev\\learn\\dotnet\\ERS.Aprendendo.TestesFuncionais\\ERS.Aprendendo.TestesFuncionais.Dominio\\ERS.Aprendendo.TestesFuncionais.Dominio.csproj": {
               "projectPath": "E:\\dev\\learn\\dotnet\\ERS.Aprendendo.TestesFuncionais\\ERS.Aprendendo.TestesFuncionais.Dominio\\ERS.Aprendendo.TestesFuncionais.Dominio.csproj"

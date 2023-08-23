@@ -15,7 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ERS.Aprendendo.TestesFuncionais.Core\ERS.Aprendendo.TestesFuncionais.Core.csproj" />
-    <ProjectReference Include="..\ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Command\ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.csproj" />
+    <ProjectReference Include="..\ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Command\ERS.Aprendendo.TestesFuncionais.Core.Cqrs.csproj" />
     <ProjectReference Include="..\ERS.Aprendendo.TestesFuncionais.Infra.BancoDeDados\ERS.Aprendendo.TestesFuncionais.Infra.BancoDeDados.csproj" />
     <ProjectReference Include="..\ERS.Aprendendo.TestesFuncionais.Infra.IoC\ERS.Aprendendo.TestesFuncionais.Infra.IoC.csproj" />
   </ItemGroup>
