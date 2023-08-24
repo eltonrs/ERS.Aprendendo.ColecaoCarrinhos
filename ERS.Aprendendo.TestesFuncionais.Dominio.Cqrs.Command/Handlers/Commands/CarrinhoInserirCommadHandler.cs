@@ -6,14 +6,14 @@ using MediatR;
 
 namespace ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Handlers.Commands
 {
-    public class CarrinhoInserirCommadHanlder
+    public class CarrinhoInserirCommadHandler
         : IRequestHandler<CarrinhoInserirCommand, Guid>
     {
         private readonly ICarrinhoRepositorio _carrinhoRepositorio;
         private readonly IColecaoRepositorio _colecaoRepositorio;
         private readonly IValidator<CarrinhoInserirCommand> _commandValidador;
 
-        public CarrinhoInserirCommadHanlder(
+        public CarrinhoInserirCommadHandler(
             ICarrinhoRepositorio carrinhoRepositorio,
             IColecaoRepositorio colecaoRepositorio,
             IValidator<CarrinhoInserirCommand> commandValidador

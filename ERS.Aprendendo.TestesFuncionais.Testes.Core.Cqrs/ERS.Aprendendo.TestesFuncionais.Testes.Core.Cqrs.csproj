@@ -26,10 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ComMelhoria\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Command\ERS.Aprendendo.TestesFuncionais.Core.Cqrs.csproj" />
   </ItemGroup>
 

@@ -8,7 +8,7 @@ using Moq;
 
 namespace ERS.Aprendendo.TestesFuncionais.Testes.Core.Cqrs.SemMelhoria
 {
-    public class CarrinhoInserirCommadHanlderTestes
+    public class CarrinhoInserirCommadHandlerTestes
     {
         #region Testes do handle oficial, sem testar chamadas das injeções.
 
@@ -32,7 +32,7 @@ namespace ERS.Aprendendo.TestesFuncionais.Testes.Core.Cqrs.SemMelhoria
 
             // Contruir o objeto do serviço que está sendo testado;
 
-            var handler = new CarrinhoInserirCommadHanlder(
+            var handler = new CarrinhoInserirCommadHandler(
                 new Mock<ICarrinhoRepositorio>().Object,
                 new Mock<IColecaoRepositorio>().Object,
                 validador
@@ -59,7 +59,7 @@ namespace ERS.Aprendendo.TestesFuncionais.Testes.Core.Cqrs.SemMelhoria
 
             var validador = new CarrinhoInserirCommandValidador();
 
-            var handler = new CarrinhoInserirCommadHanlder(
+            var handler = new CarrinhoInserirCommadHandler(
                 new Mock<ICarrinhoRepositorio>().Object,
                 new Mock<IColecaoRepositorio>().Object,
                 validador
@@ -90,7 +90,7 @@ namespace ERS.Aprendendo.TestesFuncionais.Testes.Core.Cqrs.SemMelhoria
 
             var validador = new CarrinhoInserirCommandValidador();
 
-            var handler = new CarrinhoInserirCommadHanlder(
+            var handler = new CarrinhoInserirCommadHandler(
                 new Mock<ICarrinhoRepositorio>().Object,
                 new Mock<IColecaoRepositorio>().Object,
                 validador
@@ -117,7 +117,7 @@ namespace ERS.Aprendendo.TestesFuncionais.Testes.Core.Cqrs.SemMelhoria
 
             var validador = new CarrinhoInserirCommandValidador();
 
-            var handler = new CarrinhoInserirCommadHanlder(
+            var handler = new CarrinhoInserirCommadHandler(
                 new Mock<ICarrinhoRepositorio>().Object,
                 new Mock<IColecaoRepositorio>().Object,
                 validador
@@ -154,7 +154,7 @@ namespace ERS.Aprendendo.TestesFuncionais.Testes.Core.Cqrs.SemMelhoria
             var mockColecaoRepositorio = new Mock<IColecaoRepositorio>();
             var validador = new CarrinhoInserirCommandValidador();
 
-            var handler = new CarrinhoInserirCommadHanlder(
+            var handler = new CarrinhoInserirCommadHandler(
                 mockCarrihnoRepositorio.Object,
                 mockColecaoRepositorio.Object,
                 validador
@@ -211,7 +211,7 @@ namespace ERS.Aprendendo.TestesFuncionais.Testes.Core.Cqrs.SemMelhoria
             var mockColecaoRepositorio = new Mock<IColecaoRepositorio>();
             var validador = new CarrinhoInserirCommandValidador();
 
-            var handler = new CarrinhoInserirCommadHanlder(
+            var handler = new CarrinhoInserirCommadHandler(
                 mockCarrihnoRepositorio.Object,
                 mockColecaoRepositorio.Object,
                 validador
