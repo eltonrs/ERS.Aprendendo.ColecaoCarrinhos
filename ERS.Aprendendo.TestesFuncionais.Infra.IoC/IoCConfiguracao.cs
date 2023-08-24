@@ -1,5 +1,4 @@
-﻿using ERS.Aprendendo.TestesFuncionais.Core.Dtos;
-using ERS.Aprendendo.TestesFuncionais.Core.Validador.cs;
+﻿using ERS.Aprendendo.TestesFuncionais.Core.Validadores.Dtos.Cqrs.Command;
 using ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Command.Handlers.Queries;
 using ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Commands;
 using ERS.Aprendendo.TestesFuncionais.Dominio.Interfaces.Repositorios;

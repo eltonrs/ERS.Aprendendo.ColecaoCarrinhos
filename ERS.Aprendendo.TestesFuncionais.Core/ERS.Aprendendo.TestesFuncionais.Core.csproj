@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <Folder Include="Dtos\Cqrs\Command\" />
-    <Folder Include="Validadores\Dtos\Cqrs\Command\" />
   </ItemGroup>
 
 </Project>

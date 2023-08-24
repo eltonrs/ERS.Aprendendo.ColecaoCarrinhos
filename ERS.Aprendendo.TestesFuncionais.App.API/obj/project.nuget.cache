@@ -1,12 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "UqSNCEPCk5KO2KtYz7Z6Eg7mGqdfzy1VxMkiM3it8ha+JHtV4vV62lBx6QOuMYpCY7DWd8B4t96XBTDl8XThVw==",
+  "dgSpecHash": "ClicxzR5mbagxGu9Imi8eBSH6mMl2XUlOhSCrEydjHj+Z/6U1YuLBp4aZiAuv0rPjL3la2qNGwDDkeZ+Iszesw==",
   "success": true,
   "projectFilePath": "E:\\dev\\learn\\dotnet\\ERS.Aprendendo.TestesFuncionais\\ERS.Aprendendo.TestesFuncionais.App.API\\ERS.Aprendendo.TestesFuncionais.App.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\elton\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
-    "C:\\Users\\elton\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
-    "C:\\Users\\elton\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\elton\\.nuget\\packages\\mediatr\\12.1.0\\mediatr.12.1.0.nupkg.sha512",
     "C:\\Users\\elton\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\elton\\.nuget\\packages\\microsoft.aspnetcore.authentication.certificate\\7.0.10\\microsoft.aspnetcore.authentication.certificate.7.0.10.nupkg.sha512",

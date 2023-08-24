@@ -2,7 +2,7 @@
 using ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Commands;
 using FluentValidation;
 
-namespace ERS.Aprendendo.TestesFuncionais.Core.Validador.cs
+namespace ERS.Aprendendo.TestesFuncionais.Core.Validadores.Dtos.Cqrs.Command
 {
     public class CarrinhoInserirCommandValidador : AbstractValidator<CarrinhoInserirCommand>
     {
