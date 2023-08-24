@@ -59,10 +59,37 @@ namespace ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Handlers.Commands
             return carrinho.Id;
         }
 
+        public async Task<Guid> HandleSimples(
+            CarrinhoInserirCommand request,
+            CancellationToken cancellationToken
+        )
+        {
+            var resultadoValidacao = await _commandValidador.ValidateAsync(
+                request,
+                cancellationToken
+            );
+
+            if (!resultadoValidacao.IsValid)
+                return Guid.Empty;
+
+            var colecao = new Colecao(
+                Guid.NewGuid(),
+                request.ColecaoDescricao
+            );
+
+            var carrinho = new Carrinho(
+                Guid.NewGuid(),
+                request.Modelo,
+                request.DataLancamento,
+                colecao.Id
+            );
+
+            return carrinho.Id;
+        }
+
         private async Task<Colecao> ObterColecaoAsync(
             string descricao,
             CancellationToken cancellationToken
-
         )
         {
             var colecao = await _colecaoRepositorio.ObterPorDescricaoAsync(

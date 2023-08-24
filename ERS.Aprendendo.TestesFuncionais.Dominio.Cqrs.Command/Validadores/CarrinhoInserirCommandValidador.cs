@@ -9,7 +9,7 @@ namespace ERS.Aprendendo.TestesFuncionais.Core.Validadores.Dtos.Cqrs.Command
         public CarrinhoInserirCommandValidador()
         {
             RuleFor(c => c.Id)
-                .NotEqual(Guid.Empty)
+                .Equal(Guid.Empty)
                 .WithMessage("Não pode enviar id válido para inserir. O Id é gerado automaticamente!");
             
             RuleFor(c => c)
