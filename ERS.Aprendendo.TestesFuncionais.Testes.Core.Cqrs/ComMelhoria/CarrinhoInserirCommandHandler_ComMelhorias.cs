@@ -1,9 +1,9 @@
-﻿using ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Commands;
+﻿using ERS.Aprendendo.TestesFuncionais.Core.Validadores.Dtos.Cqrs.Command;
+using ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Commands;
 using ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Handlers.Commands;
 using ERS.Aprendendo.TestesFuncionais.Dominio.Entidades;
 using ERS.Aprendendo.TestesFuncionais.Dominio.Interfaces.Repositorios;
 using FluentAssertions;
-using FluentValidation;
 using FluentValidation.TestHelper;
 using Moq;
 
@@ -11,10 +11,39 @@ namespace ERS.Aprendendo.TestesFuncionais.Testes.Core.Cqrs.ComMelhoria
 {
     public class CarrinhoInserirCommandHandler_ComMelhorias
     {
+        private readonly Guid idValidoParaInserir = Guid.Empty;
+        private readonly Guid idInvalidoParaInserir = Guid.NewGuid();
+
         [Fact]
         public async Task HandleOficialComChamadas_RequestInvalida_ResponderComIdZerado()
         {
-            // Escrever com base no de baixo e com base no equivalente da SemMelhorias
+            var cancellationToken = new CancellationTokenSource().Token;
+
+            var requestInvalida = new CarrinhoInserirCommand
+            {
+                Id = idInvalidoParaInserir,
+                Modelo = string.Empty,
+                DataLancamento = DateTime.Now,
+                ColecaoDescricao = string.Empty
+            };
+
+            var (handler, assertions) = new HandlerBuilder(cancellationToken)
+                .Build();
+
+            var carrinhoId = await handler.Handle(
+                requestInvalida,
+                cancellationToken
+            );
+
+            carrinhoId
+                .Should()
+                .Be(Guid.Empty);
+
+            assertions
+                .NaoDeveTerValidadoRequest(requestInvalida)
+                .NaoDeveTerChamadoRepositorioCarrinhoParaAdicionar()
+                .NaoDeveTerChamadoRepositorioCarrinhoParaSalvar()
+                .NaoDeveTerChamadoRepositorioColecaoParaObterPorDescricao();
         }
 
         [Fact]
@@ -22,19 +51,19 @@ namespace ERS.Aprendendo.TestesFuncionais.Testes.Core.Cqrs.ComMelhoria
         {
             var cancellationToken = new CancellationTokenSource().Token;
 
-            var requestValido = new CarrinhoInserirCommand
+            var requestValida = new CarrinhoInserirCommand
             {
-                Id = Guid.Empty,
-                Modelo = "Modelo Y",
+                Id = idValidoParaInserir,
+                Modelo = "Modelo X",
                 DataLancamento = DateTime.Now,
-                ColecaoDescricao = "HyperCars"
+                ColecaoDescricao = "Super HT"
             };
 
             var (handler, assertions) = new HandlerBuilder(cancellationToken)
                 .Build();
 
             var carrinhoId = await handler.Handle(
-                requestValido,
+                requestValida,
                 cancellationToken
             );
 
@@ -43,10 +72,10 @@ namespace ERS.Aprendendo.TestesFuncionais.Testes.Core.Cqrs.ComMelhoria
                 .NotBe(Guid.Empty);
 
             assertions
-                .DeveTerValidadoRequest(requestValido)
-                .DeveTerChamadoRepositorioCarrinhoParaAdicionarComBaseNaRequest(requestValido)
+                .DeveTerValidadoRequest(requestValida)
+                .DeveTerChamadoRepositorioCarrinhoParaAdicionarComBaseNaRequest(requestValida)
                 .DeveTerChamadoRepositorioCarrinhoParaPersistir()
-                .DeveTerChamadoRepositorioColecaoParaObterPorDescricao(requestValido.ColecaoDescricao);
+                .DeveTerChamadoRepositorioColecaoParaObterPorDescricao(requestValida.ColecaoDescricao);
         }
     }
 
@@ -54,15 +83,14 @@ namespace ERS.Aprendendo.TestesFuncionais.Testes.Core.Cqrs.ComMelhoria
     {
         private readonly Mock<ICarrinhoRepositorio> _mockCarrihnoRepositorio;
         private readonly Mock<IColecaoRepositorio> _mockColecaoRepositorio;
-        private readonly InlineValidator<CarrinhoInserirCommand> _mockValidadorCommand;
+        private readonly CarrinhoInserirCommandValidador _validadorCommand;
         private readonly CancellationToken _cancellationToken;
 
         public HandlerBuilder(CancellationToken cancellationToken)
         {
             _mockCarrihnoRepositorio = new();
             _mockColecaoRepositorio = new();
-            _mockValidadorCommand = new();
-            _mockValidadorCommand = new InlineValidator<CarrinhoInserirCommand>();
+            _validadorCommand = new CarrinhoInserirCommandValidador();
 
             _cancellationToken = cancellationToken;
         }
@@ -71,7 +99,7 @@ namespace ERS.Aprendendo.TestesFuncionais.Testes.Core.Cqrs.ComMelhoria
             => new(
                 _mockCarrihnoRepositorio.Object,
                 _mockColecaoRepositorio.Object,
-                _mockValidadorCommand
+                _validadorCommand
             );
 
         public (CarrinhoInserirCommadHandler, HandlerAssertions) Build()
@@ -80,7 +108,7 @@ namespace ERS.Aprendendo.TestesFuncionais.Testes.Core.Cqrs.ComMelhoria
                 new HandlerAssertions(
                     _mockCarrihnoRepositorio,
                     _mockColecaoRepositorio,
-                    _mockValidadorCommand,
+                    _validadorCommand,
                     _cancellationToken
                 )
             );
@@ -90,33 +118,35 @@ namespace ERS.Aprendendo.TestesFuncionais.Testes.Core.Cqrs.ComMelhoria
     {
         private readonly Mock<ICarrinhoRepositorio> _mockCarrinhoRepositorio;
         private readonly Mock<IColecaoRepositorio> _mockColecaoRepositorio;
-        private readonly InlineValidator<CarrinhoInserirCommand> _mockValidadorCommand;
+        private readonly CarrinhoInserirCommandValidador _validadorCommand;
         private readonly CancellationToken _cancellationToken;
 
         public HandlerAssertions(
             Mock<ICarrinhoRepositorio> mockCarrihnoRepositorio,
             Mock<IColecaoRepositorio> mockColecaoRepositorio,
-            InlineValidator<CarrinhoInserirCommand> mockValidadorCommand,
+            CarrinhoInserirCommandValidador validadorCommand,
             CancellationToken cancellationToken
         )
         {
             _mockCarrinhoRepositorio = mockCarrihnoRepositorio;
             _mockColecaoRepositorio = mockColecaoRepositorio;
-            _mockValidadorCommand = mockValidadorCommand;
+            _validadorCommand = validadorCommand;
 
             _cancellationToken = cancellationToken;
         }
 
+        #region Deve ter chamado...
+
         public HandlerAssertions DeveTerValidadoRequest(CarrinhoInserirCommand requestCommand)
         {
-            _mockValidadorCommand
+            _validadorCommand
                 .TestValidateAsync(
-                    requestCommand,
+                    objectToTest: requestCommand,
                     cancellationToken: _cancellationToken
                 )
                 .Result
                 .ShouldNotHaveAnyValidationErrors();
-            
+
             return this;
         }
 
@@ -167,5 +197,63 @@ namespace ERS.Aprendendo.TestesFuncionais.Testes.Core.Cqrs.ComMelhoria
 
             return this;
         }
+
+        #endregion
+
+        #region Não deve ter chamado...
+
+        public HandlerAssertions NaoDeveTerValidadoRequest(CarrinhoInserirCommand requestCommand)
+        {
+            _validadorCommand
+                .TestValidateAsync(
+                    objectToTest: requestCommand,
+                    cancellationToken: _cancellationToken
+                )
+                .Result
+                .ShouldHaveAnyValidationError();
+
+            return this;
+        }
+
+        public HandlerAssertions NaoDeveTerChamadoRepositorioCarrinhoParaAdicionar()
+        {
+            _mockCarrinhoRepositorio
+                .Verify(mock =>
+                    mock.AdicionarAsync(
+                        It.IsAny<Carrinho>(),
+                        It.IsAny<CancellationToken>()
+                    ),
+                    Times.Never
+                );
+
+            return this;
+        }
+
+        public HandlerAssertions NaoDeveTerChamadoRepositorioCarrinhoParaSalvar()
+        {
+            _mockCarrinhoRepositorio
+                .Verify(mock =>
+                    mock.SalvarAsync(It.IsAny<CancellationToken>()),
+                    Times.Never
+                );
+
+            return this;
+        }
+
+        public HandlerAssertions NaoDeveTerChamadoRepositorioColecaoParaObterPorDescricao()
+        {
+            _mockColecaoRepositorio
+                .Verify(mock =>
+                    mock.ObterPorDescricaoAsync(
+                        It.IsAny<string>(),
+                        It.IsAny<CancellationToken>()
+                    ),
+                    Times.Never
+                );
+
+            return this;
+        }
+
+        #endregion
     }
 }

@@ -10,17 +10,20 @@ namespace ERS.Aprendendo.TestesFuncionais.Testes.Core.Cqrs.SemMelhoria
 {
     public class CarrinhoInserirCommadHandlerTestes
     {
+        private readonly Guid idValidoParaInserir = Guid.Empty;
+        private readonly Guid idInvalidoParaInserir = Guid.NewGuid();
+
         #region Testes do handle oficial, sem testar chamadas das injeções.
 
         [Fact]
         public async Task HandleOficialSemChamadas_RequestInvalida_ResponderCarrinhoIdZerado()
         {
-            var requestInvalido = new CarrinhoInserirCommand
+            var requestInvalida = new CarrinhoInserirCommand
             {
-                Id = Guid.Empty,
-                Modelo = string.Empty,
+                Id = idInvalidoParaInserir,
+                Modelo = "Modelo J",
                 DataLancamento = DateTime.Now,
-                ColecaoDescricao = string.Empty
+                ColecaoDescricao = "V8"
             };
 
             // Mockar manualmente as injeções que devem ser checadas no cenário do teste.
@@ -39,19 +42,21 @@ namespace ERS.Aprendendo.TestesFuncionais.Testes.Core.Cqrs.SemMelhoria
             );
 
             var carrinhoId = await handler.Handle(
-                requestInvalido,
+                requestInvalida,
                 CancellationToken.None
             );
             
-            carrinhoId.Should().Be(Guid.Empty);
+            carrinhoId
+                .Should()
+                .Be(Guid.Empty);
         }
 
         [Fact]
         public async Task HandleOficialSemChamadas_RequestValida_ResponderComCarrinhoId()
         {
-            var requestValido = new CarrinhoInserirCommand
+            var requestValida = new CarrinhoInserirCommand
             {
-                Id = Guid.Empty,
+                Id = idValidoParaInserir,
                 Modelo = "Modelo X",
                 DataLancamento = DateTime.Now,
                 ColecaoDescricao = "Super HT"
@@ -66,11 +71,13 @@ namespace ERS.Aprendendo.TestesFuncionais.Testes.Core.Cqrs.SemMelhoria
             );
 
             var carrinhoId = await handler.Handle(
-                requestValido,
+                requestValida,
                 CancellationToken.None
             );
 
-            carrinhoId.Should().NotBe(Guid.Empty);
+            carrinhoId
+                .Should()
+                .NotBe(Guid.Empty);
         }
 
         #endregion
@@ -80,12 +87,12 @@ namespace ERS.Aprendendo.TestesFuncionais.Testes.Core.Cqrs.SemMelhoria
         [Fact]
         public async Task HandleSimplesSemChamadas_RequestInvalida_ResponderCarrinhoIdZerado()
         {
-            var requestInvalido = new CarrinhoInserirCommand
+            var requestInvalida = new CarrinhoInserirCommand
             {
-                Id = Guid.Empty,
-                Modelo = string.Empty,
+                Id = idInvalidoParaInserir,
+                Modelo = "Modelo J",
                 DataLancamento = DateTime.Now,
-                ColecaoDescricao = string.Empty
+                ColecaoDescricao = "V8"
             };
 
             var validador = new CarrinhoInserirCommandValidador();
@@ -97,19 +104,21 @@ namespace ERS.Aprendendo.TestesFuncionais.Testes.Core.Cqrs.SemMelhoria
             );
 
             var carrinhoId = await handler.HandleSimples(
-                requestInvalido,
+                requestInvalida,
                 CancellationToken.None
             );
 
-            carrinhoId.Should().Be(Guid.Empty);
+            carrinhoId
+                .Should()
+                .Be(Guid.Empty);
         }
 
         [Fact]
         public async Task HandleSimplesSemChamadas_RequestValida_ResponderComCarrinhoId()
         {
-            var requestValido = new CarrinhoInserirCommand
+            var requestValida = new CarrinhoInserirCommand
             {
-                Id = Guid.Empty,
+                Id = idValidoParaInserir,
                 Modelo = "Modelo X",
                 DataLancamento = DateTime.Now,
                 ColecaoDescricao = "Super HT"
@@ -124,11 +133,13 @@ namespace ERS.Aprendendo.TestesFuncionais.Testes.Core.Cqrs.SemMelhoria
             );
 
             var carrinhoId = await handler.HandleSimples(
-                requestValido,
+                requestValida,
                 CancellationToken.None
             );
 
-            carrinhoId.Should().NotBe(Guid.Empty);
+            carrinhoId
+                .Should()
+                .NotBe(Guid.Empty);
         }
 
         #endregion
@@ -142,7 +153,7 @@ namespace ERS.Aprendendo.TestesFuncionais.Testes.Core.Cqrs.SemMelhoria
 
             var requestInvalida = new CarrinhoInserirCommand
             {
-                Id = Guid.Empty,
+                Id = idInvalidoParaInserir,
                 Modelo = string.Empty,
                 DataLancamento = DateTime.Now,
                 ColecaoDescricao = string.Empty
@@ -165,7 +176,9 @@ namespace ERS.Aprendendo.TestesFuncionais.Testes.Core.Cqrs.SemMelhoria
                 cancellationToken
             );
 
-            carrinhoId.Should().Be(Guid.Empty);
+            carrinhoId
+                .Should()
+                .Be(Guid.Empty);
 
             // Garantir que NÃO tenham sido feitas requisições ao banco desnecessariamente.
 
@@ -199,12 +212,12 @@ namespace ERS.Aprendendo.TestesFuncionais.Testes.Core.Cqrs.SemMelhoria
         {
             var cancellationToken = new CancellationTokenSource().Token;
 
-            var requestValido = new CarrinhoInserirCommand
+            var requestValida = new CarrinhoInserirCommand
             {
-                Id = Guid.Empty,
-                Modelo = "Modelo Y",
+                Id = idValidoParaInserir,
+                Modelo = "Modelo X",
                 DataLancamento = DateTime.Now,
-                ColecaoDescricao = "HyperCars"
+                ColecaoDescricao = "Super HT"
             };
 
             var mockCarrihnoRepositorio = new Mock<ICarrinhoRepositorio>();
@@ -218,7 +231,7 @@ namespace ERS.Aprendendo.TestesFuncionais.Testes.Core.Cqrs.SemMelhoria
             );
 
             var carrinhoId = await handler.Handle(
-                requestValido,
+                requestValida,
                 cancellationToken
             );
 
@@ -233,8 +246,8 @@ namespace ERS.Aprendendo.TestesFuncionais.Testes.Core.Cqrs.SemMelhoria
                     mock.AdicionarAsync(
                         It.Is<Carrinho>(carrinhoParametro =>
                             carrinhoParametro.Id != Guid.Empty
-                            && carrinhoParametro.Modelo == requestValido.Modelo
-                            && carrinhoParametro.DataLancamento == requestValido.DataLancamento
+                            && carrinhoParametro.Modelo == requestValida.Modelo
+                            && carrinhoParametro.DataLancamento == requestValida.DataLancamento
                             && carrinhoParametro.ColecaoId != Guid.Empty
                         ),
                         It.Is<CancellationToken>(tokenParametro => tokenParametro == cancellationToken)
@@ -253,7 +266,7 @@ namespace ERS.Aprendendo.TestesFuncionais.Testes.Core.Cqrs.SemMelhoria
             mockColecaoRepositorio
                 .Verify(mock =>
                     mock.ObterPorDescricaoAsync(
-                        It.Is<string>(descricaoParametro => descricaoParametro == requestValido.ColecaoDescricao),
+                        It.Is<string>(descricaoParametro => descricaoParametro == requestValida.ColecaoDescricao),
                         It.Is<CancellationToken>(tokenParametro => tokenParametro == cancellationToken)
                     ),
                     Times.Once
