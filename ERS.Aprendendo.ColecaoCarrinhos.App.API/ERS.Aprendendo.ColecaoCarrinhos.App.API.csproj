@@ -14,10 +14,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ERS.Aprendendo.TestesFuncionais.Core\ERS.Aprendendo.ColecaoCarrinhos.Core.csproj" />
-    <ProjectReference Include="..\ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Command\ERS.Aprendendo.ColecaoCarrinhos.Core.Cqrs.csproj" />
-    <ProjectReference Include="..\ERS.Aprendendo.TestesFuncionais.Infra.BancoDeDados\ERS.Aprendendo.ColecaoCarrinhos.Infra.BancoDeDados.csproj" />
-    <ProjectReference Include="..\ERS.Aprendendo.TestesFuncionais.Infra.IoC\ERS.Aprendendo.ColecaoCarrinhos.Infra.IoC.csproj" />
+    <ProjectReference Include="..\ERS.Aprendendo.ColecaoCarrinhos.Core\ERS.Aprendendo.ColecaoCarrinhos.Core.csproj" />
+    <ProjectReference Include="..\ERS.Aprendendo.ColecaoCarrinhos.Dominio.Cqrs.Command\ERS.Aprendendo.ColecaoCarrinhos.Core.Cqrs.csproj" />
+    <ProjectReference Include="..\ERS.Aprendendo.ColecaoCarrinhos.Infra.BancoDeDados\ERS.Aprendendo.ColecaoCarrinhos.Infra.BancoDeDados.csproj" />
+    <ProjectReference Include="..\ERS.Aprendendo.ColecaoCarrinhos.Infra.IoC\ERS.Aprendendo.ColecaoCarrinhos.Infra.IoC.csproj" />
   </ItemGroup>
 
 </Project>

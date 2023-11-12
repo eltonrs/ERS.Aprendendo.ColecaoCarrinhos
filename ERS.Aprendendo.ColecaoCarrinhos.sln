@@ -5,29 +5,29 @@ VisualStudioVersion = 17.6.33801.468
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Core", "3 - Core", "{1C6D8CD7-03E9-4C78-B4DF-0357D6D82887}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERS.Aprendendo.ColecaoCarrinhos.Core", "ERS.Aprendendo.TestesFuncionais.Core\ERS.Aprendendo.ColecaoCarrinhos.Core.csproj", "{756F6B8A-D203-473C-BE19-44D21D411566}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERS.Aprendendo.ColecaoCarrinhos.Core", "ERS.Aprendendo.ColecaoCarrinhos.Core\ERS.Aprendendo.ColecaoCarrinhos.Core.csproj", "{756F6B8A-D203-473C-BE19-44D21D411566}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERS.Aprendendo.ColecaoCarrinhos.Dominio", "ERS.Aprendendo.TestesFuncionais.Dominio\ERS.Aprendendo.ColecaoCarrinhos.Dominio.csproj", "{F458F054-C727-4BC8-8CE6-52EE71306310}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERS.Aprendendo.ColecaoCarrinhos.Dominio", "ERS.Aprendendo.ColecaoCarrinhos.Dominio\ERS.Aprendendo.ColecaoCarrinhos.Dominio.csproj", "{F458F054-C727-4BC8-8CE6-52EE71306310}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra", "4 - Infra", "{F06FAA4D-E91F-4FF2-8923-24E8A53DC145}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERS.Aprendendo.ColecaoCarrinhos.Infra.BancoDeDados", "ERS.Aprendendo.TestesFuncionais.Infra.BancoDeDados\ERS.Aprendendo.ColecaoCarrinhos.Infra.BancoDeDados.csproj", "{A8E13503-C4B5-43A7-A23A-97B28D8AC752}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERS.Aprendendo.ColecaoCarrinhos.Infra.BancoDeDados", "ERS.Aprendendo.ColecaoCarrinhos.Infra.BancoDeDados\ERS.Aprendendo.ColecaoCarrinhos.Infra.BancoDeDados.csproj", "{A8E13503-C4B5-43A7-A23A-97B28D8AC752}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERS.Aprendendo.ColecaoCarrinhos.Infra.IoC", "ERS.Aprendendo.TestesFuncionais.Infra.IoC\ERS.Aprendendo.ColecaoCarrinhos.Infra.IoC.csproj", "{192031FF-238A-4C3A-864D-8FABEB99AFA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERS.Aprendendo.ColecaoCarrinhos.Infra.IoC", "ERS.Aprendendo.ColecaoCarrinhos.Infra.IoC\ERS.Aprendendo.ColecaoCarrinhos.Infra.IoC.csproj", "{192031FF-238A-4C3A-864D-8FABEB99AFA5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - App", "1 - App", "{07C4D1C9-C6A1-4DFF-8750-1E4E9BAA6EED}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERS.Aprendendo.ColecaoCarrinhos.App.API", "ERS.Aprendendo.TestesFuncionais.App.API\ERS.Aprendendo.ColecaoCarrinhos.App.API.csproj", "{891E879F-C941-4DBC-A23A-9C6736BC93F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERS.Aprendendo.ColecaoCarrinhos.App.API", "ERS.Aprendendo.ColecaoCarrinhos.App.API\ERS.Aprendendo.ColecaoCarrinhos.App.API.csproj", "{891E879F-C941-4DBC-A23A-9C6736BC93F6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Dominio", "2 - Dominio", "{557008D6-8EBE-4A3B-925B-2B8CA16FF550}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERS.Aprendendo.ColecaoCarrinhos.Core.Cqrs", "ERS.Aprendendo.TestesFuncionais.Dominio.Cqrs.Command\ERS.Aprendendo.ColecaoCarrinhos.Core.Cqrs.csproj", "{7FA7EAD7-838D-4D81-B243-757CEB7F1752}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERS.Aprendendo.ColecaoCarrinhos.Core.Cqrs", "ERS.Aprendendo.ColecaoCarrinhos.Dominio.Cqrs.Command\ERS.Aprendendo.ColecaoCarrinhos.Core.Cqrs.csproj", "{7FA7EAD7-838D-4D81-B243-757CEB7F1752}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Testes", "5 - Testes", "{FDD3D9CF-2EF1-4A45-82FC-FC35C9DA1BD7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.3 - Core", "5.3 - Core", "{D99A1F1A-08A7-40EA-AE00-A430B0AA4337}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERS.Aprendendo.ColecaoCarrinhos.Testes.Core.Cqrs", "ERS.Aprendendo.TestesFuncionais.Testes.Core.Cqrs\ERS.Aprendendo.ColecaoCarrinhos.Testes.Core.Cqrs.csproj", "{A611A1BD-65A1-433B-A348-46EF4C23D0BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERS.Aprendendo.ColecaoCarrinhos.Testes.Core.Cqrs", "ERS.Aprendendo.ColecaoCarrinhos.Testes.Core.Cqrs\ERS.Aprendendo.ColecaoCarrinhos.Testes.Core.Cqrs.csproj", "{A611A1BD-65A1-433B-A348-46EF4C23D0BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ERS.Aprendendo.TestesFuncionais.Dominio\ERS.Aprendendo.ColecaoCarrinhos.Dominio.csproj" />
+    <ProjectReference Include="..\ERS.Aprendendo.ColecaoCarrinhos.Dominio\ERS.Aprendendo.ColecaoCarrinhos.Dominio.csproj" />
   </ItemGroup>
 
   <ItemGroup>
