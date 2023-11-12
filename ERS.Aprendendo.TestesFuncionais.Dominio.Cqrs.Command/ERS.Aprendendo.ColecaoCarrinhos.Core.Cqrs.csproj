@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ERS.Aprendendo.TestesFuncionais.Core\ERS.Aprendendo.TestesFuncionais.Core.csproj" />
+    <ProjectReference Include="..\ERS.Aprendendo.TestesFuncionais.Core\ERS.Aprendendo.ColecaoCarrinhos.Core.csproj" />
   </ItemGroup>
 
 </Project>
