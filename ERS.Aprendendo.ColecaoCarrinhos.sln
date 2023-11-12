@@ -29,6 +29,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.3 - Core", "5.3 - Core", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERS.Aprendendo.ColecaoCarrinhos.Testes.Core.Cqrs", "ERS.Aprendendo.ColecaoCarrinhos.Testes.Core.Cqrs\ERS.Aprendendo.ColecaoCarrinhos.Testes.Core.Cqrs.csproj", "{A611A1BD-65A1-433B-A348-46EF4C23D0BA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6 - Docker", "6 - Docker", "{6538164F-BF2A-4DDF-BA6D-6C1FAC364ECA}"
+	ProjectSection(SolutionItems) = preProject
+		redis-compose.yml = redis-compose.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

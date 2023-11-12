@@ -38,3 +38,29 @@ public class ArmazenarFooCommmandHandler : IRequestHandler<ArmazenarFooCommmand,
 }
 
 ```
+
+### Docker
+
+# Redis Docker comando [ASBOLETO]:
+docker pull redis:alpine
+docker run --name regis-carrinhos -p 5002:6372 -d redis:alpine
+
+# Redis Commander para acesso ao servidor [OBSOLETO]:
+docker pull rediscommander/redis-commander
+
+docker run --rm --name redis-commander -d \
+  -p 8081:8081 \
+  rediscommander/redis-commander:latest
+
+# Docker compose
+
+Ver o arquivo \Docker\redis-compose.yml
+
+# Subir o arquivo:
+
+docker compose -f redis-compose.yml up -d
+
+# Acessando o Redis Commander:
+
+http://127.0.0.1:8081/
+

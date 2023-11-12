@@ -26,24 +26,30 @@ namespace ERS.Aprendendo.TestesFuncionais.App.API
         }
 
         private static void ConfigurarServicos(
-            IServiceCollection servicos,
-            IConfiguration configuracao
+            IServiceCollection services,
+            IConfiguration configuration
         )
         {
             // Adiciona os serviços necessários no container (host) da aplicação
 
-            servicos.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme).AddCertificate();
-            servicos.AddControllers();
+            services.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme).AddCertificate();
+            services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            servicos.AddEndpointsApiExplorer();
-            servicos.AddSwaggerGen();
-            servicos.AddControllers();
+            services.AddEndpointsApiExplorer();
+            services.AddSwaggerGen();
+            services.AddControllers();
 
-            servicos.ConfigurarRepositorios();
-            servicos.ConfigurarValidadores();
-            servicos.AdicionarColecaoCarrinhosContexto(configuracao);
+            services.AddStackExchangeRedisCache(options =>
+            {
+                options.Configuration = configuration.GetConnectionString("Regis");
+                options.InstanceName = "RedisCarrinhos_";
+            });
 
-            servicos.ConfigurarCqrs();
+            services.ConfigurarRepositorios();
+            services.ConfigurarValidadores();
+            services.AdicionarColecaoCarrinhosContexto(configuration);
+
+            services.ConfigurarCqrs();
         }
 
         private static void ConfigurarAplicacao(WebApplication app)
@@ -68,9 +74,16 @@ namespace ERS.Aprendendo.TestesFuncionais.App.API
         {
             var scopedFactory = app.Services.GetService<IServiceScopeFactory>();
 
+            if (scopedFactory is null)
+                return;
+
             using (var scope = scopedFactory.CreateScope())
             {
                 var service = scope.ServiceProvider.GetService<DataSeeder>();
+
+                if (service is null)
+                    return;
+
                 service.Seed();
             }
         }
